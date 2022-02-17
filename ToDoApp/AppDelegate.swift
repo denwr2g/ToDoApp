@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  ToDoApp
+//  ToDoTable
 //
-//  Created by deniss.lobacs on 17/02/2022.
+//  Created by deniss.lobacs on 15/02/2022.
 //
 
 import UIKit
@@ -17,12 +17,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        let viewController = ViewController()
-        window?.rootViewController = viewController
+        let listViewController = ListViewController()
+        let addItemViewController = AddItemViewController()
+        
+        let navigationController = UINavigationController(rootViewController: listViewController)
+    
+        let listViewModel = ListViewModel()
+        let addItemViewModel = AddItemViewModel()
+        
+        
+        listViewModel.onOpenAddVC = { [] in
+            navigationController.pushViewController(addItemViewController, animated: true)
+        }
+        
+        addItemViewModel.onOpenListVC = { [] in
+            navigationController.popToRootViewController(animated: true)
+        }
+        
+        
+        listViewController.configure(listViewModel: listViewModel)
+        addItemViewController.configure(addItemViewModel: addItemViewModel)
+        
+        window?.rootViewController = navigationController
         
         return true
     }
-
+    
+    
+    func makeListViewController() -> UIViewController {
+        let listViewController = ListViewController()
+        return listViewController
+    }
 
 
 }
