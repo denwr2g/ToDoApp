@@ -9,11 +9,15 @@ import Foundation
 
 class ListViewModel {
     
-    var onOpenAddVC: ( () -> Void )?
-    var taskManager = TaskManager.shared
+    var onOpenAddVC: (() -> Void)?
+    private var taskManager = TaskManager.shared
     
     func shouldOpenAddVC () {
         self.onOpenAddVC?()
+    }
+    
+    func getTaskManager() -> TaskManager {
+        return self.taskManager
     }
     
 }

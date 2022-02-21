@@ -10,10 +10,13 @@ import Foundation
 class AddItemViewModel {
     
     var onOpenListVC: ( () -> Void )?
-    var taskManager = TaskManager.shared
+    private var taskManager = TaskManager.shared
     
     func shouldOpenListVC() {
         self.onOpenListVC?()
     }
     
+    func getTaskManager() -> TaskManager {
+        return self.taskManager
+    }
 }

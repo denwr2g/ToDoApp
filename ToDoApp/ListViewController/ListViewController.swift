@@ -9,8 +9,8 @@ import UIKit
 
 class ListViewController: UIViewController {
     
-    var tableView = UITableView()
-    var listViewModel: ListViewModel?
+    private var tableView = UITableView()
+    private var listViewModel: ListViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,32 +25,7 @@ class ListViewController: UIViewController {
     func configure(listViewModel: ListViewModel) {
         self.listViewModel = listViewModel
     }
-    
-    
-}
-
-extension ListViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listViewModel?.taskManager.data.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TableCell else {return UITableViewCell.init()}
-        
-        let titleText = listViewModel?.taskManager.getValue(index: indexPath.row)
-        cell.titleLabel.text = titleText
-        
-        return cell
-         
-    }
-    
-}
-
-extension ListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
+     
 }
 
 extension ListViewController {
@@ -71,3 +46,29 @@ extension ListViewController {
         listViewModel?.shouldOpenAddVC()
     }
 }
+
+
+extension ListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listViewModel?.getTaskManager().data.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TableCell else {return UITableViewCell.init()}
+        
+        let titleText = listViewModel?.getTaskManager().getValue(index: indexPath.row)
+        cell.titleLabel.text = titleText
+        
+        return cell
+         
+    }
+    
+}
+
+extension ListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+}
+

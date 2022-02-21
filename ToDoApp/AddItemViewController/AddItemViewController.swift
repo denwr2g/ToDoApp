@@ -10,11 +10,19 @@ import SnapKit
 
 class AddItemViewController: UIViewController {
     
-    var addItemViewModel: AddItemViewModel?
+    private var addItemViewModel: AddItemViewModel?
+    
+    let containerView: UIView = {
+        let view = UIView()
+        return view
+    }()
     
     let addItemButton: UIButton = {
         let button = UIButton()
         button.setTitle("Add", for: .normal)
+        button.layer.borderWidth = 1.0
+        button.layer.borderColor = CGColor.init(red: 100, green: 100, blue: 100, alpha: 1)
+        button.layer.cornerRadius = 20
         button.addTarget(self, action: #selector(goToListVC), for: .touchUpInside)
         return button
     }()
@@ -26,6 +34,9 @@ class AddItemViewController: UIViewController {
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
         textField.textColor = .white
+        textField.layer.borderWidth = 1.0
+        textField.layer.borderColor = CGColor.init(red: 100, green: 100, blue: 100, alpha: 1)
+        textField.textAlignment = .center
         return textField
     }()
     
@@ -34,37 +45,51 @@ class AddItemViewController: UIViewController {
         configureUI()
     }
     
-    func getItemName() -> String? {
-        return textField.text
-    }
     
     func configure(addItemViewModel: AddItemViewModel) {
         self.addItemViewModel = addItemViewModel
     }
     
     @objc func goToListVC() {
-        addItemViewModel?.taskManager.addValue(value: textField.text ?? "")
+        addItemViewModel?.getTaskManager().addValue(value: textField.text ?? "")
         addItemViewModel?.shouldOpenListVC()
     }
     
 }
 
-extension AddItemViewController {
+private extension AddItemViewController {
     
     func configureUI() {
         view.backgroundColor = .purple
         navigationItem.title = "Add item"
         
-        view.addSubview(addItemButton)
-        addItemButton.snp.makeConstraints { make in
+        
+        view.addSubview(containerView)
+        containerView.addSubview(textField)
+        containerView.addSubview(addItemButton)
+        
+        containerView.snp.makeConstraints { make in
+            make.height.equalTo(500)
+            make.centerY.centerX.equalToSuperview()
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
             make.top.equalTo(view.safeAreaLayoutGuide).inset(50)
-            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().inset(100)
         }
         
-        view.addSubview(textField)
         textField.snp.makeConstraints { make in
-            make.top.equalTo(addItemButton).offset(100)
-            make.centerX.equalToSuperview()
+            make.centerX.centerY.equalTo(containerView)
+            make.height.equalTo(50)
+            make.left.equalTo(containerView).offset(50)
+            make.right.equalTo(containerView).offset(-50)
         }
+        
+        addItemButton.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.width.equalTo(100)
+            make.centerX.equalTo(containerView)
+            make.bottom.equalTo(containerView).inset(20)
+        }
+
     }
 }
