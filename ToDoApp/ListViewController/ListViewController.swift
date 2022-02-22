@@ -9,12 +9,13 @@ import UIKit
 
 class ListViewController: UIViewController {
     
-    private var tableView = UITableView()
-    private var listViewModel: ListViewModel?
+    var tableView = UITableView()
+    var listViewModel: ListViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configTable()
+        
     }
         
     override func viewDidAppear(_ animated: Bool) {
@@ -25,28 +26,9 @@ class ListViewController: UIViewController {
     func configure(listViewModel: ListViewModel) {
         self.listViewModel = listViewModel
     }
-     
-}
-
-extension ListViewController {
     
-    private func configTable() {
-        view.addSubview(tableView)
-        tableView.frame = view.bounds
-        navigationItem.title = "ToDoList"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(goToAddListViewController))
-        
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.register(UINib(nibName: "TableCell", bundle: nil), forCellReuseIdentifier: "cell")
-        
-    }
     
-    @objc private func goToAddListViewController() {
-        listViewModel?.shouldOpenAddVC()
-    }
 }
-
 
 extension ListViewController: UITableViewDataSource {
     
@@ -72,3 +54,25 @@ extension ListViewController: UITableViewDelegate {
     }
 }
 
+extension ListViewController {
+    
+    private func configTable() {
+        view.addSubview(tableView)
+        tableView.frame = view.bounds
+        navigationItem.title = "ToDoList"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(goToAddListViewController))
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.register(UINib(nibName: "TableCell", bundle: nil), forCellReuseIdentifier: "cell")
+        
+        if let data = UserDefaults.standard.object(forKey: "myArray") as? [String] {
+            listViewModel?.getTaskManager().data = data
+        }
+        
+    }
+    
+    @objc private func goToAddListViewController() {
+        listViewModel?.shouldOpenAddVC()
+    }
+}

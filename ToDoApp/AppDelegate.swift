@@ -17,29 +17,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        let listVC = ListViewController()
-        let addItemVC = AddItemViewController()
+        let listViewModel = ListViewModel()
+        let addItemViewModel = AddItemViewModel()
         
-        let navigationController = UINavigationController(rootViewController: listVC)
         
-        let listVM = ListViewModel()
-        let addItemVM = AddItemViewModel()
-
-        listVM.onOpenAddVC = { [] in
-            navigationController.pushViewController(addItemVC, animated: true)
-        }
+        let navigationController = UINavigationController(rootViewController: makeListViewController(viewModel: listViewModel))
         
-        addItemVM.onOpenListVC = { [] in
-            navigationController.popToRootViewController(animated: true)
-        }
+        listViewModel.onOpenAddVC = { navigationController.pushViewController(self.makeAddItemViewController(viewModel: addItemViewModel), animated: true) }
         
-        listVC.configure(listViewModel: listVM)
-        addItemVC.configure(addItemViewModel: addItemVM)
+        addItemViewModel.onOpenListVC = { navigationController.popToRootViewController(animated: true) }
+        
+      
         
         window?.rootViewController = navigationController
-        
+    
         return true
     }
     
+    func makeListViewController(viewModel: ListViewModel) -> UIViewController {
+        let viewController = ListViewController()
+        viewController.configure(listViewModel: viewModel)
+        return viewController
+    }
     
+    func makeAddItemViewController(viewModel: AddItemViewModel) -> UIViewController {
+        let viewController = AddItemViewController()
+        viewController.configure(addItemViewModel: viewModel)
+        return viewController
+    }
 }

@@ -52,6 +52,7 @@ class AddItemViewController: UIViewController {
     
     @objc func goToListVC() {
         addItemViewModel?.getTaskManager().addValue(value: textField.text ?? "")
+        UserDefaults.standard.set(addItemViewModel?.getTaskManager().data, forKey: "myArray")
         addItemViewModel?.shouldOpenListVC()
     }
     
@@ -63,14 +64,12 @@ private extension AddItemViewController {
         view.backgroundColor = .purple
         navigationItem.title = "Add item"
         
-        
         view.addSubview(containerView)
         containerView.addSubview(textField)
         containerView.addSubview(addItemButton)
         
         containerView.snp.makeConstraints { make in
-            make.height.equalTo(500)
-            make.centerY.centerX.equalToSuperview()
+           // make.center.equalToSuperview()
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.top.equalTo(view.safeAreaLayoutGuide).inset(50)
