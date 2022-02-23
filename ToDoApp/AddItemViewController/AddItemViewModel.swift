@@ -9,14 +9,17 @@ import Foundation
 
 class AddItemViewModel {
     
-    var onOpenListVC: ( () -> Void )?
+    var onOpenListVC: (() -> Void)?
     private var taskManager = TaskManager.shared
     
     func shouldOpenListVC() {
         self.onOpenListVC?()
     }
     
-    func getTaskManager() -> TaskManager {
-        return self.taskManager
+    func addValue(value: String?) {
+        guard let value = value else { return }
+        taskManager.data.append(value)
+        shouldOpenListVC()
     }
+    
 }

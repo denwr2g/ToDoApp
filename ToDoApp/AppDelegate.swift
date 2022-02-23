@@ -11,38 +11,47 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var navigationController: UINavigationController?
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        let listViewModel = ListViewModel()
-        let addItemViewModel = AddItemViewModel()
-        
-        
-        let navigationController = UINavigationController(rootViewController: makeListViewController(viewModel: listViewModel))
-        
-        listViewModel.onOpenAddVC = { navigationController.pushViewController(self.makeAddItemViewController(viewModel: addItemViewModel), animated: true) }
-        
-        addItemViewModel.onOpenListVC = { navigationController.popToRootViewController(animated: true) }
-        
-      
-        
+        navigationController = UINavigationController(rootViewController: makeListViewController())
+    
         window?.rootViewController = navigationController
     
         return true
     }
     
-    func makeListViewController(viewModel: ListViewModel) -> UIViewController {
+    func makeListViewController() -> UIViewController {
         let viewController = ListViewController()
-        viewController.configure(listViewModel: viewModel)
+        let listViewModel = ListViewModel()
+       // navigationController?.pushViewController(makeListViewController(), animated: true)
+        
+        listViewModel.onOpenAddVC = { [weak self] in
+            guard let self = self else {return}
+            self.navigationController?.pushViewController(self.makeAddItemViewController(listViewController: viewController), animated: true)
+        }
+        
+        viewController.configure(listViewModel: listViewModel)
         return viewController
     }
     
-    func makeAddItemViewController(viewModel: AddItemViewModel) -> UIViewController {
+    func makeAddItemViewController(listViewController: ListViewController) -> UIViewController {
         let viewController = AddItemViewController()
-        viewController.configure(addItemViewModel: viewModel)
+        let addItemViewModel = AddItemViewModel()
+        
+        addItemViewModel.onOpenListVC = { [weak self] in
+            listViewController.updateTableView()
+            self?.navigationController?.popToRootViewController(animated: true)
+        }
+        
+        viewController.configure(addItemViewModel: addItemViewModel)
         return viewController
     }
+    
+
 }

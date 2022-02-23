@@ -10,17 +10,21 @@ import Foundation
 class TaskManager {
     
     static var shared = TaskManager()
-    var data: [String] = []
     
+    @Storage(key: "@com.denisslobacs.todo10", defaultValue: [])
+    var data: [String?]
     
     private init(){}
     
-    func addValue(value: String) {
-        data.append(value)
+    func addValue(value: String?) {
+        if let value = value {
+            data.append(value)
+        }
     }
     
-    func getValue(index: Int) -> String {
+    func getValue(index: Int) -> String? {
         guard data.count > index else {return ""}
         return data[index]
     }
+    
 }

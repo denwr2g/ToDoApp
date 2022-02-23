@@ -45,17 +45,14 @@ class AddItemViewController: UIViewController {
         configureUI()
     }
     
-    
     func configure(addItemViewModel: AddItemViewModel) {
         self.addItemViewModel = addItemViewModel
     }
     
     @objc func goToListVC() {
-        addItemViewModel?.getTaskManager().addValue(value: textField.text ?? "")
-        UserDefaults.standard.set(addItemViewModel?.getTaskManager().data, forKey: "myArray")
-        addItemViewModel?.shouldOpenListVC()
+        addItemViewModel?.addValue(value: textField.text)
     }
-    
+
 }
 
 private extension AddItemViewController {
@@ -69,7 +66,6 @@ private extension AddItemViewController {
         containerView.addSubview(addItemButton)
         
         containerView.snp.makeConstraints { make in
-           // make.center.equalToSuperview()
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.top.equalTo(view.safeAreaLayoutGuide).inset(50)

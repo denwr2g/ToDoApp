@@ -9,14 +9,22 @@ import Foundation
 
 class ListViewModel {
     
-    var onOpenAddVC: ( () -> Void )?
+    var onOpenAddVC: (() -> Void)?
     private var taskManager = TaskManager.shared
     
     func shouldOpenAddVC () {
         self.onOpenAddVC?()
     }
     
-    func getTaskManager() -> TaskManager {
-        return self.taskManager
+    func getValue(index: Int) -> String? {
+        guard taskManager.data.count > index else {return ""}
+        return taskManager.data[index]
     }
+    
+    func getArray() -> [String?] {
+        return taskManager.data
+    }
+    
+    
+    
 }
