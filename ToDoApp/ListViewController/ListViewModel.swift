@@ -16,12 +16,12 @@ class ListViewModel {
         self.onOpenAddVC?()
     }
     
-    func getValue(index: Int) -> String? {
-        guard taskManager.data.count > index else {return ""}
+    func getValue(index: Int) -> Product? {
+        guard taskManager.data.count > index else {return nil}
         return taskManager.data[index]
     }
     
-    func getArray() -> [String?] {
+    func getArray() -> [Product?] {
         return taskManager.data
     }
     

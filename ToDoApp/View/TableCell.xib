@@ -16,23 +16,35 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RMO-nq-ItZ">
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkk-ss-Z14">
                         <rect key="frame" x="5" y="5" width="310" height="34"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1x-Mi-2nl">
+                                <rect key="frame" x="0.0" y="0.0" width="268.5" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqg-By-4li">
+                                <rect key="frame" x="268.5" y="0.0" width="41.5" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="RMO-nq-ItZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="5Nm-7R-c6B"/>
-                    <constraint firstAttribute="trailing" secondItem="RMO-nq-ItZ" secondAttribute="trailing" constant="5" id="CnZ-Mz-U57"/>
-                    <constraint firstItem="RMO-nq-ItZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="Mh2-Qx-K9Z"/>
-                    <constraint firstAttribute="bottom" secondItem="RMO-nq-ItZ" secondAttribute="bottom" constant="5" id="ZVd-pt-izp"/>
+                    <constraint firstAttribute="bottom" secondItem="nkk-ss-Z14" secondAttribute="bottom" constant="5" id="23k-0h-c7I"/>
+                    <constraint firstAttribute="trailing" secondItem="nkk-ss-Z14" secondAttribute="trailing" constant="5" id="7rU-np-Yi7"/>
+                    <constraint firstItem="nkk-ss-Z14" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="q1V-yF-rDp"/>
+                    <constraint firstItem="nkk-ss-Z14" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="sPI-hP-nNn"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="titleLabel" destination="RMO-nq-ItZ" id="pro-xc-sVM"/>
+                <outlet property="productCountLabel" destination="nqg-By-4li" id="KW3-4z-Hcy"/>
+                <outlet property="productNameLabel" destination="J1x-Mi-2nl" id="1f5-ez-9uu"/>
             </connections>
             <point key="canvasLocation" x="139" y="98"/>
         </tableViewCell>

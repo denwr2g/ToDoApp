@@ -11,19 +11,18 @@ class TaskManager {
     
     static var shared = TaskManager()
     
-    @Storage(key: "@com.denisslobacs.todo10", defaultValue: [])
-    var data: [String?]
+    var data = [Product?]()
     
     private init(){}
     
-    func addValue(value: String?) {
-        if let value = value {
-            data.append(value)
+    func addValue(productName: String?, productCount: String?) {
+        if let name = productName, let count = productCount {
+            data.append(Product(productName: name, productCount: count))
         }
     }
     
-    func getValue(index: Int) -> String? {
-        guard data.count > index else {return ""}
+    func getValue(index: Int) -> Product? {
+        guard data.count > index else {return nil}
         return data[index]
     }
     

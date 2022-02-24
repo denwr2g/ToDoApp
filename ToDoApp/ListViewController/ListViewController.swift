@@ -27,29 +27,6 @@ class ListViewController: UIViewController {
     
 }
 
-extension ListViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listViewModel?.getArray().count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TableCell else {return UITableViewCell.init()}
-        
-        let titleText = listViewModel?.getValue(index: indexPath.row)
-        cell.titleLabel.text = titleText
-        
-        return cell
-        
-    }
-}
-
-extension ListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
-}
-
 private extension ListViewController {
     
     func configTable() {
@@ -70,3 +47,27 @@ private extension ListViewController {
     }
     
 }
+
+extension ListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listViewModel?.getArray().count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TableCell else {return UITableViewCell.init()}
+        
+        guard let product = listViewModel?.getValue(index: indexPath.row) else {return UITableViewCell.init()}
+        cell.set(product: product)
+        
+        return cell
+    }
+}
+
+extension ListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+}
+
+

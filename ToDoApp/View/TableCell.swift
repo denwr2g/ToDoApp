@@ -9,7 +9,11 @@ import UIKit
 
 class TableCell: UITableViewCell {
 
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var productNameLabel: UILabel!
+    @IBOutlet weak var productCountLabel: UILabel!
     
-    
+    func set(product: Product) {
+        self.productNameLabel.text = product.productName
+        self.productCountLabel.text = product.productCount
+    }
 }

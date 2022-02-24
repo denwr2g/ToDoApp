@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class AddItemViewModel {
     
@@ -16,10 +17,13 @@ class AddItemViewModel {
         self.onOpenListVC?()
     }
     
-    func addValue(value: String?) {
-        guard let value = value else { return }
-        taskManager.data.append(value)
-        shouldOpenListVC()
+    
+    func addValue(productName: String?, productCount: String?) {
+        guard let name = productName, let count = productCount else {return}
+        if productName != "" && productCount != "" {
+            taskManager.data.append(Product(productName: name, productCount: count))
+            shouldOpenListVC()
+        } else {return}
     }
     
 }
