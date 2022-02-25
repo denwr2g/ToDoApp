@@ -55,9 +55,9 @@ extension ListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TableCell else {return UITableViewCell.init()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TableCell,
+              let product = listViewModel?.getValue(index: indexPath.row) else {return UITableViewCell.init()}
         
-        guard let product = listViewModel?.getValue(index: indexPath.row) else {return UITableViewCell.init()}
         cell.set(product: product)
         
         return cell

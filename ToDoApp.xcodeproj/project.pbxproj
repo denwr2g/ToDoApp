@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		27E6C40E27C77128005965F6 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6C40D27C77128005965F6 /* ProductModel.swift */; };
-		27E6C41127C791A3005965F6 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6C41027C791A3005965F6 /* UITextFieldExtension.swift */; };
 		27E6C41327C79AFD005965F6 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6C41227C79AFD005965F6 /* UIAlertControllerExtension.swift */; };
+		27E6C41527C8DDBD005965F6 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6C41427C8DDBD005965F6 /* CustomTextField.swift */; };
+		27E6C41727C8EAC2005965F6 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6C41627C8EAC2005965F6 /* AddItemViewController.swift */; };
 		27F70E3A27BEA9E50034EADE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F70E3927BEA9E50034EADE /* AppDelegate.swift */; };
 		27F70E4327BEA9E90034EADE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27F70E4227BEA9E90034EADE /* Assets.xcassets */; };
 		27F70E4627BEA9E90034EADE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27F70E4427BEA9E90034EADE /* LaunchScreen.storyboard */; };
 		27F70E4E27BEC8DC0034EADE /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F70E4D27BEC8DC0034EADE /* ListViewController.swift */; };
 		27F70E5027BEC8F00034EADE /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F70E4F27BEC8F00034EADE /* ListViewModel.swift */; };
-		27F70E5327BEC9330034EADE /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F70E5227BEC9330034EADE /* AddItemViewController.swift */; };
 		27F70E5527BEC9460034EADE /* AddItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F70E5427BEC9460034EADE /* AddItemViewModel.swift */; };
 		27F70E5927BEC99D0034EADE /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F70E5727BEC99D0034EADE /* TableCell.swift */; };
 		27F70E5A27BEC99D0034EADE /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27F70E5827BEC99D0034EADE /* TableCell.xib */; };
@@ -25,8 +25,9 @@
 
 /* Begin PBXFileReference section */
 		27E6C40D27C77128005965F6 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
-		27E6C41027C791A3005965F6 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		27E6C41227C79AFD005965F6 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
+		27E6C41427C8DDBD005965F6 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		27E6C41627C8EAC2005965F6 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		27F70E3627BEA9E50034EADE /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F70E3927BEA9E50034EADE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27F70E4227BEA9E90034EADE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -34,7 +35,6 @@
 		27F70E4727BEA9E90034EADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27F70E4D27BEC8DC0034EADE /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		27F70E4F27BEC8F00034EADE /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
-		27F70E5227BEC9330034EADE /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		27F70E5427BEC9460034EADE /* AddItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewModel.swift; sourceTree = "<group>"; };
 		27F70E5727BEC99D0034EADE /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		27F70E5827BEC99D0034EADE /* TableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableCell.xib; sourceTree = "<group>"; };
@@ -56,10 +56,17 @@
 		27E6C40F27C79165005965F6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				27E6C41027C791A3005965F6 /* UITextFieldExtension.swift */,
 				27E6C41227C79AFD005965F6 /* UIAlertControllerExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		27E6C41827C8F385005965F6 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				27E6C41427C8DDBD005965F6 /* CustomTextField.swift */,
+			);
+			path = TextField;
 			sourceTree = "<group>";
 		};
 		27F70E2D27BEA9E50034EADE = {
@@ -86,6 +93,7 @@
 				27F70E5627BEC94F0034EADE /* AddItemViewController */,
 				27F70E5B27BEC9A70034EADE /* View */,
 				27F70E5E27BEC9D20034EADE /* Model */,
+				27E6C41827C8F385005965F6 /* TextField */,
 				27E6C40F27C79165005965F6 /* Extensions */,
 				27F70E4727BEA9E90034EADE /* Info.plist */,
 				27F70E4227BEA9E90034EADE /* Assets.xcassets */,
@@ -105,8 +113,8 @@
 		27F70E5627BEC94F0034EADE /* AddItemViewController */ = {
 			isa = PBXGroup;
 			children = (
-				27F70E5227BEC9330034EADE /* AddItemViewController.swift */,
 				27F70E5427BEC9460034EADE /* AddItemViewModel.swift */,
+				27E6C41627C8EAC2005965F6 /* AddItemViewController.swift */,
 			);
 			path = AddItemViewController;
 			sourceTree = "<group>";
@@ -207,8 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27F70E5327BEC9330034EADE /* AddItemViewController.swift in Sources */,
-				27E6C41127C791A3005965F6 /* UITextFieldExtension.swift in Sources */,
+				27E6C41527C8DDBD005965F6 /* CustomTextField.swift in Sources */,
 				27F70E5527BEC9460034EADE /* AddItemViewModel.swift in Sources */,
 				27F70E5D27BEC9C90034EADE /* TaskManager.swift in Sources */,
 				27E6C41327C79AFD005965F6 /* UIAlertControllerExtension.swift in Sources */,
@@ -217,6 +224,7 @@
 				27F70E5027BEC8F00034EADE /* ListViewModel.swift in Sources */,
 				27F70E4E27BEC8DC0034EADE /* ListViewController.swift in Sources */,
 				27E6C40E27C77128005965F6 /* ProductModel.swift in Sources */,
+				27E6C41727C8EAC2005965F6 /* AddItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

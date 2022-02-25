@@ -33,8 +33,8 @@ class AddItemViewController: UIViewController {
         return stack
     }()
     
-    private let productNameTextField = UITextField.customTextField("Input Product Name:")
-    private let productCountTextField = UITextField.customTextField("Input Product Count:")
+    private let productNameTextField = CustomTextField(placeholder: "Input product name:")
+    private let productCountTextField = CustomTextField(placeholder: "Input product count:")
     
     private let addItemButton: UIButton = {
         let button = UIButton(type: .system)

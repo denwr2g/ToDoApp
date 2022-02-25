@@ -29,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func makeListViewController() -> UIViewController {
         let viewController = ListViewController()
         let listViewModel = ListViewModel()
-       // navigationController?.pushViewController(makeListViewController(), animated: true)
         
         listViewModel.onOpenAddVC = { [weak self] in
             guard let self = self else {return}
@@ -43,6 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func makeAddItemViewController(listViewController: ListViewController) -> UIViewController {
         let viewController = AddItemViewController()
         let addItemViewModel = AddItemViewModel()
+        
+        addItemViewModel.onShowAllert = { viewController.alert(message: "All fields should be filled!", title: "Warning!") }
         
         addItemViewModel.onOpenListVC = { [weak self] in
             listViewController.updateTableView()

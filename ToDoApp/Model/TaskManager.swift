@@ -15,10 +15,10 @@ class TaskManager {
     
     private init(){}
     
-    func addValue(productName: String?, productCount: String?) {
-        if let name = productName, let count = productCount {
-            data.append(Product(productName: name, productCount: count))
-        }
+    func addValue(product: Product?) {
+        guard let product = product else {return}
+        data.append(product)
+        
     }
     
     func getValue(index: Int) -> Product? {
@@ -27,3 +27,4 @@ class TaskManager {
     }
     
 }
+
