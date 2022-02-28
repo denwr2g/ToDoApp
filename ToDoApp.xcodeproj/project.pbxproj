@@ -11,6 +11,8 @@
 		27E6C41327C79AFD005965F6 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6C41227C79AFD005965F6 /* UIAlertControllerExtension.swift */; };
 		27E6C41527C8DDBD005965F6 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6C41427C8DDBD005965F6 /* CustomTextField.swift */; };
 		27E6C41727C8EAC2005965F6 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6C41627C8EAC2005965F6 /* AddItemViewController.swift */; };
+		27E6C41E27C90D23005965F6 /* NewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6C41D27C90D23005965F6 /* NewView.swift */; };
+		27E6C42027C94AFB005965F6 /* CustomButton .swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6C41F27C94AFB005965F6 /* CustomButton .swift */; };
 		27F70E3A27BEA9E50034EADE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F70E3927BEA9E50034EADE /* AppDelegate.swift */; };
 		27F70E4327BEA9E90034EADE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27F70E4227BEA9E90034EADE /* Assets.xcassets */; };
 		27F70E4627BEA9E90034EADE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27F70E4427BEA9E90034EADE /* LaunchScreen.storyboard */; };
@@ -28,6 +30,8 @@
 		27E6C41227C79AFD005965F6 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		27E6C41427C8DDBD005965F6 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		27E6C41627C8EAC2005965F6 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		27E6C41D27C90D23005965F6 /* NewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewView.swift; sourceTree = "<group>"; };
+		27E6C41F27C94AFB005965F6 /* CustomButton .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomButton .swift"; sourceTree = "<group>"; };
 		27F70E3627BEA9E50034EADE /* ToDoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27F70E3927BEA9E50034EADE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27F70E4227BEA9E90034EADE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				27E6C41427C8DDBD005965F6 /* CustomTextField.swift */,
+				27E6C41F27C94AFB005965F6 /* CustomButton .swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 		27F70E5B27BEC9A70034EADE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				27E6C41D27C90D23005965F6 /* NewView.swift */,
 				27F70E5727BEC99D0034EADE /* TableCell.swift */,
 				27F70E5827BEC99D0034EADE /* TableCell.xib */,
 				27F70E4427BEA9E90034EADE /* LaunchScreen.storyboard */,
@@ -215,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27E6C41E27C90D23005965F6 /* NewView.swift in Sources */,
 				27E6C41527C8DDBD005965F6 /* CustomTextField.swift in Sources */,
 				27F70E5527BEC9460034EADE /* AddItemViewModel.swift in Sources */,
 				27F70E5D27BEC9C90034EADE /* TaskManager.swift in Sources */,
@@ -224,6 +231,7 @@
 				27F70E5027BEC8F00034EADE /* ListViewModel.swift in Sources */,
 				27F70E4E27BEC8DC0034EADE /* ListViewController.swift in Sources */,
 				27E6C40E27C77128005965F6 /* ProductModel.swift in Sources */,
+				27E6C42027C94AFB005965F6 /* CustomButton .swift in Sources */,
 				27E6C41727C8EAC2005965F6 /* AddItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

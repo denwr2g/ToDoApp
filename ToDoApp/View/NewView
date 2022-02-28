@@ -1,0 +1,12 @@
+//
+//  NewView- UIView.swift
+//  ToDoApp
+//
+//  Created by deniss.lobacs on 25/02/2022.
+//
+
+import Foundation
+
+final class NewView: UIView {
+    
+}
