@@ -9,6 +9,9 @@ import Foundation
 import UIKit
 
 final class NewView: UIView {
+        
+    let productNameTextField = CustomTextField()
+    let productCountTextField = CustomTextField()
     
     init() {
         super.init(frame: .zero)
@@ -39,8 +42,6 @@ final class NewView: UIView {
         return stack
     }()
     
-    let productNameTextField = CustomTextField(placeholder: "Input product name:")
-    let productCountTextField = CustomTextField(placeholder: "Input product count:")
     
     let addItemButton: UIButton = {
             let button = UIButton(type: .system)
@@ -57,6 +58,9 @@ private extension NewView {
     
     func setupItems() {
         backgroundColor = .white
+        
+        productNameTextField.setupPlaceHolder(placeholder: "Input product name")
+        productCountTextField.setupPlaceHolder(placeholder: "Input product count")
         
         addSubview(titleLabel)
         addSubview(stackView)
