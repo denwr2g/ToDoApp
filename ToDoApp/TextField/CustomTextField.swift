@@ -13,23 +13,23 @@ import UIKit
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        settingsUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        settingsUI()
     }
-    
-    init(placeholder: String) {
-        super.init(frame: .zero)
-        settingsUI(placeholder: placeholder)
-     }
      
-    private func settingsUI(placeholder: String) {
-         font = UIFont(name: "Arial", size: 14)
+    public func setupPlaceHolder(placeholder: String) {
          attributedPlaceholder = NSAttributedString(
              string: placeholder,
              attributes: [.foregroundColor : UIColor.lightGray,
                           .font            : UIFont.systemFont(ofSize: 12)])
+     }
+     
+    public func settingsUI() {
+         font = UIFont(name: "Arial", size: 14)
          textColor = .black
          layer.borderWidth = 1
          layer.cornerRadius = 10

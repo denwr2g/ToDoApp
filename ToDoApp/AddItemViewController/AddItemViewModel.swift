@@ -12,6 +12,7 @@ class AddItemViewModel {
     
     var onOpenListVC: (() -> Void)?
     var onShowAllert: (() -> Void)?
+    var onAddAction: (() -> Void)?
 
     private var taskManager = TaskManager.shared
     
@@ -21,6 +22,10 @@ class AddItemViewModel {
     
     func shouldShowAlert() {
         self.onShowAllert?()
+    }
+    
+    func shouldAddAction() {
+        self.onAddAction?()
     }
     
     func addValue(productName: String?, productCount: String?) {
